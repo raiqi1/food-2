@@ -9,6 +9,15 @@ import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+function formatToRupiah(amount) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
 export default function CartPage() {
   const { cartProducts, removeCartProduct } = useContext(CartContext);
   const [address, setAddress] = useState({});
@@ -102,17 +111,10 @@ export default function CartPage() {
             ))}
           <div className="py-2 pr-16 flex justify-end items-center">
             <div className="text-gray-500">
-              Subtotal:
-              <br />
-              Delivery:
-              <br />
               Total:
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}
-              <br />
-              $5
-              <br />${subtotal + 5}
+              {formatToRupiah(subtotal)}
             </div>
           </div>
         </div>
@@ -123,7 +125,9 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">Pay ${subtotal + 5}</button>
+            <button type="submit">
+              Bayar {formatToRupiah(subtotal)}
+            </button>
           </form>
         </div>
       </div>

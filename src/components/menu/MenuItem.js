@@ -4,6 +4,16 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 
+const formatToRupiah = (price) => {
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+  return formatter.format(price);
+};
+
 export default function MenuItem(menuItem) {
   const { image, name, description, basePrice, sizes, extraIngredientPrices } =
     menuItem;
@@ -74,7 +84,9 @@ export default function MenuItem(menuItem) {
               </p>
               {sizes?.length > 0 && (
                 <div className="py-2">
-                  <h3 className="text-center text-gray-700">Pick your size</h3>
+                  <h3 className="text-center text-gray-700">
+                    Pilih ukuran Anda
+                  </h3>
                   {sizes.map((size) => (
                     <label
                       key={size._id}
@@ -86,7 +98,7 @@ export default function MenuItem(menuItem) {
                         checked={selectedSize?.name === size.name}
                         name="size"
                       />
-                      {size.name} ${basePrice + size.price}
+                      {size.name} {formatToRupiah(size.price)}
                     </label>
                   ))}
                 </div>
@@ -107,24 +119,17 @@ export default function MenuItem(menuItem) {
                           .includes(extraThing._id)}
                         name={extraThing.name}
                       />
-                      {extraThing.name} +${extraThing.price}
+                      {extraThing.name} + {formatToRupiah(extraThing.price)}
                     </label>
                   ))}
                 </div>
               )}
               <div
-                className="primary sticky bottom-2 cursor-pointer text-center text-black rounded-full px-8 py-2"
+                className="primary bg-orange-600 bottom-2 cursor-pointer text-center text-black rounded-full px-8 py-2"
                 onClick={handleAddToCartButtonClick}
               >
-                Add to cart ${selectedPrice}
+                Add to cart {formatToRupiah(selectedPrice)}
               </div>
-
-              {/* <FlyingButton
-                targetTop={'5%'}
-                targetLeft={'95%'}
-                src={image}>
-           
-              </FlyingButton> */}
               <button className="mt-2" onClick={() => setShowPopup(false)}>
                 Cancel
               </button>

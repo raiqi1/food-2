@@ -16,7 +16,6 @@ export async function GET(req) {
     return Response.json( await Order.findById(_id) );
   }
 
-
   if (admin) {
     return Response.json( await Order.find() );
   }
