@@ -19,8 +19,10 @@ export default function MenuItemTile({ onAddToCart, ...item }) {
         />
       </div>
       <h4 className="font-semibold text-xl my-3">{name}</h4>
-      <Link href={`/menu-item/?${name}`}>go to details</Link>
-      <p className="text-gray-500 text-sm line-clamp-3">{description}</p>
+      {/* <Link href={`/menu-item/?${name}`}>go to details</Link> */}
+      <p className="text-gray-500 text-sm line-clamp-3">
+        {description.length > 15 ? description.slice(0, 20) + "..." : description}
+      </p>
       <AddToCartButton
         image={image}
         hasSizesOrExtras={hasSizesOrExtras}

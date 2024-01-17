@@ -9,29 +9,40 @@ export default function Home() {
       <Hero />
       <HomeMenu />
       <section className="text-center my-16" id="about">
-        <SectionHeaders
-          subHeader={'Our story'}
-          mainHeader={'About us'}
-        />
+        <SectionHeaders subHeader={"Our story"} mainHeader={"About us"} />
         <div className="text-gray-500 max-w-md mx-auto mt-4 flex flex-col gap-4">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni minima odit recusandae. Illum ipsa non repudiandae? Eum ipsam iste quos suscipit tempora? Aperiam esse fugiat inventore laboriosam officiis quam rem!
+            Di sini, bukan hanya pizza yang menjadi bintang utama, tapi juga
+            hidangan lezat lainnya yang siap memanjakan selera Anda. Setiap
+            hidangan diracik dengan cinta dan kreativitas untuk menciptakan
+            momen berkesan dalam setiap suapan.
           </p>
-          <p>At consectetur delectus ducimus est facere iure molestias obcaecati quaerat vitae voluptate? Aspernatur dolor explicabo iste minus molestiae pariatur provident quibusdam saepe?</p>
-          <p>Laborum molestias neque nulla obcaecati odio quia quod reprehenderit sit vitae voluptates? Eos, tenetur.</p>
+          <p>
+            Temukan keistimewaan rasa di setiap menu kami, dan jadikan kunjungan
+            Anda menjadi petualangan kuliner yang tak terlupakan. Mari bergabung
+            bersama kami di [Alamat Toko] dan rasakan sensasi nikmatnya bukan
+            sekadar pizza, tetapi pengalaman kuliner yang luar biasa. Selamat
+            menikmati setiap detiknya!
+          </p>
+          <p>
+          Selamat menikmati setiap detiknya!
+          </p>
         </div>
       </section>
       <section className="text-center my-8" id="contact">
         <SectionHeaders
-          subHeader={'Don\'t hesitate'}
-          mainHeader={'Contact us'}
+          subHeader={"Don't hesitate"}
+          mainHeader={"Contact us"}
         />
         <div className="mt-8">
-          <a className="text-4xl underline text-gray-500" href="tel:+46738123123">
-            +46 738 123 123
+          <a
+            className="text-4xl underline text-gray-500"
+            href="tel:+62 085891088596"
+          >
+            +62 8589 1088 596
           </a>
         </div>
       </section>
     </>
-  )
+  );
 }
